@@ -1,0 +1,25 @@
+$ mkdir data
+$ cd data
+$ vim routers-ospf.yml
+$ cat routers-ospf.yml
+---
+- name: R1-5
+  management_ip: "172.31.105.3"
+  ospf_id: 1
+  vrf: control-data
+  networks:
+- network: 192.168.1.0
+  wc_mask: 0.0.0.255
+- network: 192.168.2.0
+  wc_mask: 0.0.0.255
+  border: False
+- name: R2-5
+  management_ip: "172.31.105.4"
+  ospf_id: 1
+  vrf: control-data
+  networks:
+- network: 192.168.2.0
+  wc_mask: 0.0.0.255
+- network: 192.168.3.0
+  wc_mask: 0.0.0.255  
+  border: True
