@@ -1,0 +1,16 @@
+---
+- name: "R2-5"
+  management_ip: "172.31.105.4"  # R2
+  acl_list:
+    - network: "192.168.1.0"
+      wildcard: "0.0.0.255"
+    - network: "192.168.2.0"
+      wildcard: "0.0.0.255"
+    - network: "192.168.3.0"
+      wildcard: "0.0.0.255"
+  nat_acl: 1
+  nat_interface: "GigabitEthernet0/3"
+  vrf_name: "control-data"
+  inside_interfaces: "g0/1, g0/2"
+  outside_interface: "g0/3"
+
