@@ -4,7 +4,7 @@ import getpass
 import telnetlib
 import time
 
-HOST = "172.31.110.3"
+HOST = "172.31.105.3"
 user = input("Enter your remote account: ")
 password = getpass.getpass()
 password = "cisco"
