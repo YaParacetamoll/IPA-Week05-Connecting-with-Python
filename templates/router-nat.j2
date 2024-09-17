@@ -1,8 +1,12 @@
-{% for acl_entry in acl_list %}
-access-list {{ nat_acl }} permit {{ acl_entry.network }} {{ acl_entry.wildcard }}
+{% for acl in acl_list %}
+access-list {{ nat_acl }} permit {{ acl.network }} {{ acl.wildcard }}
 {% endfor %}
-ip nat inside source list {{ nat_acl }} interface {{ nat_interface }} vrf {{ vrf_name }} overload
-int range {{ inside_interfaces }}
+ip nat inside source list {{ nat_acl }} interface {{ outside_interface }} vrf {{ vrf_name }} overload
+{% set inside_ifaces = inside_interfaces.split(', ') %}
+{% for interface in inside_ifaces %}
+interface {{ interface }}
  ip nat inside
-int {{ outside_interface }}
+{% endfor %}
+interface {{ outside_interface }}
  ip nat outside
+
