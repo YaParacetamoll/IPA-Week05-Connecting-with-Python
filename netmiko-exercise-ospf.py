@@ -1,9 +1,11 @@
 from netmiko import ConnectHandler
-from getpass import getpass
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 # กำหนด username และ password
-username = "admin"
-password = "cisco"
+username = os.environ.get("USERNAME")
+password = os.environ.get("PASSWORD")
 
 # รายการ IP ของอุปกรณ์
 device_ip = ["172.31.105.3", "172.31.105.4"]
