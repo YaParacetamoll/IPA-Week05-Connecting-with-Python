@@ -1,15 +1,17 @@
 import pexpect
 import time
 import os
-from dotenv import load_dotenv
 
-load_dotenv(dotenv_path='.env.example')
+
+# กำหนด username และ password 
+username = os.environ.get("TELNET_USERNAME")
+password = os.environ.get("TELNET_PASSWORD")
+
 
 r1_ip = '172.31.105.3'
 r2_ip = '172.31.105.4'
 
-username = os.getenv('USERNAME')
-password = os.getenv('PASSWORD')
+
 
 loopback_ip_r1 = '172.16.1.1'
 loopback_ip_r2 = '172.16.2.2'
