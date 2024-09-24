@@ -1,12 +1,9 @@
 from netmiko import ConnectHandler
-from dotenv import load_dotenv
-load_dotenv(dotenv_path='.env.example')
 import os
 
-# กำหนด username และ password
-username = os.getenv("USERNAME")
-password = os.getenv("PASSWORD")
-
+# กำหนด username และ password 
+username = os.environ.get("TELNET_USERNAME")
+password = os.environ.get("TELNET_PASSWORD")
 # รายการ IP ของอุปกรณ์
 device_ip = ["172.31.105.3", "172.31.105.4"]
 
